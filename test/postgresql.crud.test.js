@@ -64,7 +64,10 @@ describe('crud postgresql connector', function () {
       approved: Boolean,
       data: {
         type: Object
-      }
+      },
+      files: [
+        'String'
+      ]
     });
     created = new Date();
   });
@@ -85,7 +88,8 @@ describe('crud postgresql connector', function () {
       approved: true,
       data: {
         name: 'yolo'
-      }
+      },
+      files: ['hhh', 'kkk', 'lll']
     }, function (err, p) {
       if (err) console.log(err);
       should.not.exists(err);
@@ -98,6 +102,18 @@ describe('crud postgresql connector', function () {
       where: {
         'data.name': 'yolo',
         title: 'Yolotl'
+      },
+    }, function (err, posts) {
+      if (err) return done(err);
+      posts.length.should.eql(1);
+      done();
+    });
+  });
+
+  it('should support in array item query in find', function (done) {
+    Post.find({
+      where: {
+        files: 'kkk'
       },
     }, function (err, posts) {
       if (err) return done(err);
