@@ -8,6 +8,8 @@ var DataSource = require('loopback-datasource-juggler').DataSource;
 
 var config = require('rc')('loopback', {test: {postgresql: {}}}).test.postgresql;
 
+var url;
+
 if (process.env.CI) {
   process.env.PGHOST = process.env.POSTGRESQL_HOST ||
     process.env.PGHOST ||
@@ -32,7 +34,7 @@ if (process.env.CI) {
   };
 }
 
-var url = 'postgres://' + (config.username || config.user) + ':' +
+url = 'postgres://' + (config.username || config.user) + ':' +
   config.password + '@' + (config.host || config.hostname) + ':' +
   config.port + '/' + config.database;
 

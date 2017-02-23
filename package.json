@@ -16,6 +16,7 @@
   "scripts": {
     "pretest": "node pretest.js",
     "test": "mocha -R spec --timeout 10000 --require test/init.js test/*.test.js",
+    "crudTest": "mocha -R spec --timeout 10000 --require test/init.js test/postgresql.crud.test.js",
     "lint": "eslint .",
     "posttest": "npm run lint"
   },

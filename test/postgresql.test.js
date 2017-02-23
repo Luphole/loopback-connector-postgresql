@@ -58,23 +58,27 @@ describe('postgresql connector', function() {
   before(function() {
     db = getDataSource();
 
-    Post = db.define('PostWithBoolean', {
+    Post = db.define('Post', {
       title: {type: String, length: 255, index: true},
       content: {type: String},
       loc: 'GeoPoint',
       created: Date,
       approved: Boolean,
+      data: {
+        type: Object
+      }
     });
     created = new Date();
   });
 
   it('should run migration', function(done) {
-    db.automigrate('PostWithBoolean', function() {
+    db.automigrate('Post', function() {
       done();
     });
   });
 
   var post;
+
   it('should support boolean types with true value', function(done) {
     Post.create(
       {title: 'T1', content: 'C1', approved: true, created: created},
