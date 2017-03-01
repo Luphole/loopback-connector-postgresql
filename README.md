@@ -266,7 +266,7 @@ See [LoopBack types](http://loopback.io/doc/en/lb3/LoopBack-types.html) for de
       <th>PostgreSQL Type</th>
     </tr>
     <tr>
-      <td>String<br>JSON<br>Text<br>Default</td>
+      <td>String<br>Text</td>
       <td>
         VARCHAR2<br/>
         Default length is 1024
@@ -283,6 +283,10 @@ See [LoopBack types](http://loopback.io/doc/en/lb3/LoopBack-types.html) for de
     <tr>
       <td>Boolean</td>
       <td>BOOLEAN</td>
+    </tr>
+    <tr>
+      <td>Object<br>Array</td>
+      <td>JSONB</td>
     </tr>
   </tbody>
 </table>
@@ -320,6 +324,10 @@ See [LoopBack types](http://loopback.io/doc/en/lb3/LoopBack-types.html) for de
     <tr>
       <td>POINT</td>
       <td><a href="http://apidocs.strongloop.com/loopback-datasource-juggler/#geopoint">GeoPoint</a></td>
+    </tr>
+    <tr>
+      <td>JSONB</td>
+      <td>Object || Array</td>
     </tr>
   </tbody>
 </table>
